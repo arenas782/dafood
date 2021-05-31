@@ -20,8 +20,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class ApplicationModule {
-    @Provides
-    fun provideBaseUrl() ="https://newsapi.org/v2/"
+
 
     @Provides
     @Singleton
@@ -53,4 +52,6 @@ class ApplicationModule {
     fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper = apiHelper
 
 
+    @Provides
+    fun provideBaseUrl() ="https://newsapi.org/v2/"
 }
