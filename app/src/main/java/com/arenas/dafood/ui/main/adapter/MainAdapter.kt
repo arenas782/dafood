@@ -55,7 +55,7 @@ class MainAdapter(private val dataSet: ArrayList<Article>) : RecyclerView.Adapte
         Glide.with(viewHolder.imageViewPhoto.context)
             .load(dataSet[position].urlToImage)
             .into(viewHolder.imageViewPhoto)
-        
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

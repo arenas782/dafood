@@ -3,22 +3,21 @@ package com.arenas.dafood
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.arenas.dafood.data.api.ApiHelper
-import com.arenas.dafood.data.api.RetrofitBuilder
 import com.arenas.dafood.data.model.Articles
 import com.arenas.dafood.databinding.ActivityMainBinding
-import com.arenas.dafood.ui.base.ViewModelFactory
 import com.arenas.dafood.ui.main.adapter.MainAdapter
 import com.arenas.dafood.ui.main.viewmodel.MainViewModel
 import com.arenas.dafood.utils.Status
+import dagger.hilt.android.AndroidEntryPoint
+import retrofit2.Response
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: MainViewModel
+    private val mainViewModel : MainViewModel by viewModels()
     private lateinit var adapter: MainAdapter
     private lateinit var binding : ActivityMainBinding
 
@@ -36,8 +35,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        viewModel = ViewModelProvider(this, ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))).get(
-            MainViewModel::class.java)
     }
 
     private fun setupUI() {
@@ -53,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.getArticles().observe(this, {
+        mainViewModel.getArticles().observe(this, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
@@ -75,9 +72,10 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun retrieveList(articles : Articles) {
+    private fun retrieveList(articles : Response<Articles>) {
         adapter.apply {
-            addUsers(articles.Articles)
+
+            articles.body()?.Articles?.let { addUsers(it) }
             notifyDataSetChanged()
         }
     }
