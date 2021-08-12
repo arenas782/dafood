@@ -16,10 +16,10 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val mainRepository: MainRepository) : ViewModel() {
 
 
-    fun getArticles() = liveData(Dispatchers.IO) {
+    fun getFavorites() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = mainRepository.getArticles()))
+            emit(Resource.success(data = mainRepository.getFavorites()))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }

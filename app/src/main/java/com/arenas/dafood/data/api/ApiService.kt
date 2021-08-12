@@ -1,7 +1,6 @@
 package com.arenas.dafood.data.api
 
-import com.arenas.dafood.data.model.Article
-import com.arenas.dafood.data.model.Articles
+import com.arenas.dafood.data.model.FavoriteList
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -10,6 +9,6 @@ import retrofit2.http.GET
 */
 
 interface ApiService {
-    @GET("top-headlines?country=us&apiKey=7a291f5765d347f88ca79fd689729a16")
-    suspend fun getArticles(): Response<Articles>
+    @GET("favorites.json")
+    suspend fun getFavorites(): Response<List<FavoriteList>>
 }

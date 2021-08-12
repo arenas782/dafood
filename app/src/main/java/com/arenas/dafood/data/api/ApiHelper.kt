@@ -1,6 +1,6 @@
 package com.arenas.dafood.data.api
 
-import com.arenas.dafood.data.model.Articles
+import com.arenas.dafood.data.model.FavoriteList
 import retrofit2.Response
 
 /*
@@ -8,5 +8,5 @@ import retrofit2.Response
 */
 interface ApiHelper {
 
-    suspend fun getArticles() : Response<Articles>
+    suspend fun getFavorites() : Response<List<FavoriteList>>
 }

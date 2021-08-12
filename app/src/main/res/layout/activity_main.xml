@@ -1,48 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/gray"
     android:layout_height="match_parent"
+    android:paddingTop="16dp"
     tools:context=".ui.main.view.MainActivity">
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerFrameLayout"
+    <TextView
+        android:layout_marginBottom="16dp"
+        android:id="@+id/header_text"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:text="@string/favorites"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"/>
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+        android:background="@color/white"
+        android:id="@+id/shimmer_recycler_view_collections"
+        android:layout_below="@id/header_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        app:shimmer_demo_child_count="10"
+        app:shimmer_demo_grid_child_count="2"
+        app:shimmer_demo_layout="@layout/collection_item_shimmer"
+        app:shimmer_demo_layout_manager_type="linear_horizontal"
+        app:shimmer_demo_angle="20" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            android:layout_below="@id/header_text"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/collections"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-            <include layout="@layout/shimmer_item_article" />
-        </LinearLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
+            tools:listitem="@layout/collection_item" />
+
+    <TextView
+        android:id="@+id/text_view_all_favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shimmer_recycler_view_collections"
+        android:textSize="24sp"
+        android:layout_margin="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:text="@string/all_my_favorites"/>
+
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+        android:id="@+id/shimmer_recycler_view"
+        android:layout_below="@id/text_view_all_favorites"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:shimmer_demo_child_count="10"
+        app:shimmer_demo_grid_child_count="2"
+        app:shimmer_demo_layout="@layout/shimmer_item_article"
+        app:shimmer_demo_layout_manager_type="grid"
+        app:shimmer_demo_angle="20" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:layout_below="@id/text_view_all_favorites"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:listitem="@layout/item_article"
         android:visibility="gone" />
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
 </layout>

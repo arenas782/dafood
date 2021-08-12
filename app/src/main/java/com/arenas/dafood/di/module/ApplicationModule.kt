@@ -53,5 +53,5 @@ class ApplicationModule {
 
 
     @Provides
-    fun provideBaseUrl() ="https://newsapi.org/v2/"
+    fun provideBaseUrl() ="https://gist.githubusercontent.com/aletomm90/7ff8e9a7c49aefd06a154fe097028d27/raw/c87e2e7d21313391d412420b4254c391aa68eeec/"
 }

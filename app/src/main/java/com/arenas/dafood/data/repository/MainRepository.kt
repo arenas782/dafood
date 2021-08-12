@@ -9,6 +9,6 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
-    suspend fun getArticles() =  apiHelper.getArticles()
+    suspend fun getFavorites() =  apiHelper.getFavorites()
 
 }

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Da Food</string>
+    <string name="favorites">Favoritos</string>
+    <string name="all_my_favorites_placeholder">Todos mis favoritos (%1$d)</string>
+    <string name="all_my_favorites">Todos mis favoritos</string>
+
+
 </resources>

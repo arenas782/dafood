@@ -1,6 +1,6 @@
 package com.arenas.dafood.data.api
 
-import com.arenas.dafood.data.model.Articles
+import com.arenas.dafood.data.model.FavoriteList
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -9,6 +9,6 @@ import javax.inject.Inject
 */
 class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : ApiHelper {
 
-    override suspend fun getArticles(): Response<Articles> = apiService.getArticles()
+    override suspend fun getFavorites(): Response<List<FavoriteList>> = apiService.getFavorites()
 
 }
