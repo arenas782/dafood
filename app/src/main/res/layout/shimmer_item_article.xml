@@ -17,8 +17,8 @@
             app:layout_constraintDimensionRatio="H,1:1"
             android:layout_height="0dp"
             app:cardUseCompatPadding="true"
-            android:elevation="4dp"
-            card_view:cardCornerRadius="4dp">
+            android:elevation="@dimen/tiny_cards_padding"
+            card_view:cardCornerRadius="@dimen/tiny_cards_padding">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -28,11 +28,9 @@
                     android:background="@color/gray"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="4dp"
+                    android:padding="@dimen/tiny_cards_padding"
                     tools:ignore="contentDescription" />
             </RelativeLayout>
-
         </androidx.cardview.widget.CardView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

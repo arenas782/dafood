@@ -72,23 +72,9 @@
                     android:layout_margin="6dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/nd_ic_24_fav_on_pink_white_circle"
-                    android:layout_alignParentEnd="true"
-                    />
+                    android:layout_alignParentEnd="true" />
             </RelativeLayout>
-
-
-
         </RelativeLayout>
-
-
-
     </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,15 +9,15 @@
             android:background="@color/gray"
             android:backgroundTint="@color/gray"
             android:id="@+id/card_view"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/cards_padding"
             android:layout_width="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_height="120dp"
             app:cardUseCompatPadding="true"
-            android:elevation="4dp"
-            app:cardCornerRadius="4dp">
+            android:elevation="@dimen/tiny_cards_padding"
+            app:cardCornerRadius="@dimen/tiny_cards_padding">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -26,19 +26,19 @@
                     android:layout_weight="2"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:paddingTop="8dp"
-                        android:paddingStart="8dp"
-                        android:paddingBottom="8dp"
+                        android:paddingTop="@dimen/cards_padding"
+                        android:paddingStart="@dimen/cards_padding"
+                        android:paddingBottom="@dimen/cards_padding"
                         android:id="@+id/image_view_main_picture"
                         android:layout_width="match_parent"
                         android:scaleType="centerCrop"
                         android:layout_height="match_parent"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:paddingBottom="@dimen/cards_padding"
+                    android:paddingTop="@dimen/cards_padding"
+                    android:paddingEnd="@dimen/cards_padding"
+                    android:paddingStart="@dimen/cards_padding"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:orientation="vertical"
@@ -50,7 +50,7 @@
                         android:layout_weight="1"
                         android:scaleType="centerCrop"
                         tools:ignore="NestedWeights"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="@dimen/cards_padding"/>
 
                     <ImageView
                         android:scaleType="centerCrop"
@@ -72,9 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                />
-
+                android:textSize="14sp" />
             <TextView
                 android:id="@+id/text_view_collection_count"
                 android:layout_width="wrap_content"

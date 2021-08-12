@@ -14,8 +14,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val mainRepository: MainRepository) : ViewModel() {
-
-
     fun getFavorites() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
